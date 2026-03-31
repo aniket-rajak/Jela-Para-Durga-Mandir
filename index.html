@@ -14,7 +14,8 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <ul class="nav-menu">
+            <div class="nav-logo">Jela Para Durga Mandir</div>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#programs">Features</a></li>
                 <li class="dropdown">
@@ -32,7 +33,6 @@
                 <li><a href="#blog">News</a></li>
                 <li><a href="#newsletter">Contacts</a></li>
             </ul>
-            <div class="nav-logo">Jela Para Durga Mandir</div>
             <div class="nav-social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -63,13 +63,14 @@
                     <p>Join us for prayer and devotion</p>
                 </div>
             </div>
-            <div class="hero-slide" style="background-image: url('https://content3.jdmagicbox.com/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-1zeqyiahtp.jpg');">
+            <div class="hero-slide" style="background-image: url('https://content3.jdmagicbox.com/v2/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-1zeqyiahtp.jpg');">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
                     <h1>Experience Divine Blessings</h1>
                     <p>Your path to enlightenment starts here</p>
                 </div>
             </div>
+            <div class="hero-indicators" id="heroIndicators"></div>
         </div>
         <button class="hero-arrow hero-prev" id="hero-prev">
             <i class="fas fa-chevron-left"></i>
@@ -93,7 +94,9 @@
                 <div class="program-content">
                     <h3>Daily Puja Services</h3>
                     <p>Join us for morning and evening prayers with sacred rituals and devotional singing.</p>
-                    <button type="button" class="btn btn-outline more-info-btn" data-service="daily-puja">More Info</button>
+                    <button type="button" class="btn btn-primary more-info-btn" 
+                        data-title="Daily Puja Services"
+                        data-desc="Experience the divine rhythm of daily worship at Jela Para Durga Mandir. Our priests perform traditional puja ceremonies twice daily, inviting devotees to participate in the sacred rituals that have been conducted for generations. Morning Arti at 8:00 AM and Evening Arti at 6:00 PM are the highlights of our daily worship. Join us for Bhajan and Kirtan sessions, Prasad distribution after puja, and special pujas on full moon days. Online puja booking is also available for your convenience.">More Info</button>
                 </div>
             </div>
             <div class="program-card">
@@ -103,7 +106,9 @@
                 <div class="program-content">
                     <h3>Festive Celebrations</h3>
                     <p>Experience the grandeur of Durga Puja and other religious festivals with traditional rituals.</p>
-                    <button type="button" class="btn btn-outline more-info-btn" onclick="openServiceModal('festive-celebrations')">More Info</button>
+                    <button type="button" class="btn btn-primary more-info-btn" 
+                        data-title="Festive Celebrations"
+                        data-desc="Join us in celebrating the grand festivals that bring our community together in devotion and joy. From the spectacular Durga Puja (5 days of grand celebration) to the illuminating Kali Puja (Divine power worship), each festival is a testament to our rich cultural heritage and spiritual traditions. We also celebrate Saraswati Puja for students and knowledge, Mahashivratri for Lord Shiva night vigil, and Janmashtami for Lord Krishna's birthday. Traditional folk performances and cultural programs add to the festive atmosphere.">More Info</button>
                 </div>
             </div>
             <div class="program-card">
@@ -113,7 +118,9 @@
                 <div class="program-content">
                     <h3>Temple Tours</h3>
                     <p>Visit our sacred temple and experience the divine architecture and spiritual ambiance.</p>
-                    <button type="button" class="btn btn-outline more-info-btn" onclick="openServiceModal('temple-tours')">More Info</button>
+                    <button type="button" class="btn btn-primary more-info-btn" 
+                        data-title="Temple Tours"
+                        data-desc="Visit our sacred temple and immerse yourself in the spiritual ambiance that has drawn devotees for over a century. Our guided tours (1-2 hours) offer insights into the temple history, architecture, and the divine legends associated with Goddess Durga. Experience Darshan of the main deity, visit subsidiary shrines, enjoy the temple premises garden walk, and capture photograph opportunities outside the sanctum. Tours are available from 9:00 AM to 12:00 PM and 3:00 PM to 6:00 PM daily.">More Info</button>
                 </div>
             </div>
         </div>
@@ -334,27 +341,24 @@
         </div>
     </footer>
 
-    <!-- Modal Popup -->
-    <div class="modal-overlay" id="serviceModal">
-        <div class="modal-container">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <div class="modal-content">
-                <div class="modal-gallery">
-                    <div class="modal-main-image">
-                        <img id="modalMainImage" src="" alt="Service Image">
-                    </div>
-                    <div class="modal-thumbnails" id="modalThumbnails"></div>
-                </div>
-                <div class="modal-details">
-                    <h2 id="modalTitle"></h2>
-                    <p id="modalDescription"></p>
-                    <div class="modal-features" id="modalFeatures"></div>
-                    <div class="modal-timings" id="modalTimings"></div>
-                </div>
+    <!-- Live Preview Popup Modal -->
+    <div class="preview-modal" id="previewModal">
+        <div class="preview-overlay"></div>
+        <div class="preview-container">
+            <button class="preview-close" id="previewClose">&times;</button>
+            <div class="preview-header">
+                <h2 class="preview-title" id="previewTitle"></h2>
+            </div>
+            <div class="preview-body">
+                <p class="preview-desc" id="previewDesc"></p>
+            </div>
+            <div class="preview-footer">
+                <button class="btn btn-primary" id="previewBookNow">Book Now</button>
+                <button class="btn btn-outline" id="previewCloseBtn">Close</button>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

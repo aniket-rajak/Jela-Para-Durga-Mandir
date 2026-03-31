@@ -1,3 +1,25 @@
+// Live Preview Modal Functions
+function openPreviewModal(title, description) {
+    const modal = document.getElementById('previewModal');
+    const modalTitle = document.getElementById('previewTitle');
+    const modalDesc = document.getElementById('previewDesc');
+    
+    if (modal && modalTitle && modalDesc) {
+        modalTitle.textContent = title;
+        modalDesc.textContent = description;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closePreviewModal() {
+    const modal = document.getElementById('previewModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
 // Global Modal Functions
 const serviceDataGlobal = {
     'daily-puja': {
@@ -116,7 +138,7 @@ function closeServiceModal() {
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
     const hamburger = document.getElementById('hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    const navMenu = document.getElementById('nav-menu');
     const heroSlider = document.getElementById('hero-slider');
     const heroSlides = document.querySelectorAll('.hero-slide');
     const heroPrev = document.getElementById('hero-prev');
@@ -128,32 +150,65 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideDelay = 5000;
 
     // Navbar scroll effect
-    // Check if this is the homepage (has hero slider) or inner page
     const isHomePage = document.getElementById('hero-slider') !== null;
     
     function updateNavbar() {
         if (isHomePage) {
-            // Homepage: toggle scrolled class based on scroll position
             if (window.scrollY > 100) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
         } else {
-            // Inner pages: always have scrolled style
             navbar.classList.add('scrolled');
         }
     }
     
     window.addEventListener('scroll', updateNavbar);
-    // Run once on page load to set correct state
     updateNavbar();
 
     // Mobile menu toggle
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Desktop Dropdown with hover and timeout
+    const desktopDropdown = document.querySelector('.dropdown');
+    let dropdownTimeout;
+
+    if (desktopDropdown && window.innerWidth > 1024) {
+        const dropdownContent = desktopDropdown.querySelector('.dropdown-content');
+        
+        desktopDropdown.addEventListener('mouseenter', function() {
+            clearTimeout(dropdownTimeout);
+            this.classList.add('dropdown-open');
+        });
+
+        desktopDropdown.addEventListener('mouseleave', function() {
+            const self = this;
+            dropdownTimeout = setTimeout(function() {
+                self.classList.remove('dropdown-open');
+            }, 300);
+        });
+
+        if (dropdownContent) {
+            dropdownContent.addEventListener('mouseenter', function() {
+                clearTimeout(dropdownTimeout);
+            });
+
+            dropdownContent.addEventListener('mouseleave', function() {
+                const parent = desktopDropdown;
+                dropdownTimeout = setTimeout(function() {
+                    parent.classList.remove('dropdown-open');
+                }, 300);
+            });
+        }
+    }
 
     // Mobile dropdown toggle
     const dropdown = document.querySelector('.dropdown');
@@ -168,35 +223,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Close mobile menu on link click
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+    if (navMenu) {
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+
+    // Live Preview Modal for More Info buttons
+    const previewModal = document.getElementById('previewModal');
+    const previewClose = document.getElementById('previewClose');
+    const previewCloseBtn = document.getElementById('previewCloseBtn');
+    
+    // Open preview modal
+    document.querySelectorAll('.more-info-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const title = this.getAttribute('data-title');
+            const desc = this.getAttribute('data-desc');
+            openPreviewModal(title, desc);
         });
     });
 
-    // More Info Modal - using event delegation
-    document.addEventListener('click', function(e) {
-        const btn = e.target.closest('.more-info-btn');
-        if (btn) {
-            e.preventDefault();
-            const serviceKey = btn.getAttribute('data-service');
-            openServiceModal(serviceKey);
-        }
-    });
-
-    // Close modal button
-    const modalClose = document.getElementById('modalClose');
-    if (modalClose) {
-        modalClose.addEventListener('click', closeServiceModal);
+    // Close preview modal
+    if (previewClose) {
+        previewClose.addEventListener('click', closePreviewModal);
     }
-
-    // Close modal on outside click
-    const modal = document.getElementById('serviceModal');
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeServiceModal();
+    if (previewCloseBtn) {
+        previewCloseBtn.addEventListener('click', closePreviewModal);
+    }
+    if (previewModal) {
+        previewModal.addEventListener('click', function(e) {
+            if (e.target === previewModal || e.target.classList.contains('preview-overlay')) {
+                closePreviewModal();
             }
         });
     }
@@ -204,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close modal on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            closeServiceModal();
+            closePreviewModal();
         }
     });
 
@@ -215,6 +276,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (i === index) {
                 slide.classList.add('active');
             }
+        });
+        
+        // Update indicators
+        const indicators = document.querySelectorAll('.hero-indicator');
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
         });
     }
 
@@ -236,6 +303,22 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(slideInterval);
     }
 
+    // Create indicators
+    const heroIndicators = document.getElementById('heroIndicators');
+    if (heroIndicators && heroSlides.length > 0) {
+        heroSlides.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.className = 'hero-indicator' + (index === 0 ? ' active' : '');
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+                stopSlider();
+                startSlider();
+            });
+            heroIndicators.appendChild(indicator);
+        });
+    }
+
     // Hero slider controls
     heroNext.addEventListener('click', () => {
         nextSlide();
@@ -249,12 +332,48 @@ document.addEventListener('DOMContentLoaded', () => {
         startSlider();
     });
 
+    // Touch/Swipe support for mobile and tablet
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isDragging = false;
+
+    heroSlider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        isDragging = true;
+        stopSlider();
+    }, { passive: true });
+
+    heroSlider.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        touchEndX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    heroSlider.addEventListener('touchend', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+        
+        startSlider();
+    }, { passive: true });
+
     // Start hero slider
     startSlider();
 
-    // Pause slider on hover
-    heroSlider.addEventListener('mouseenter', stopSlider);
-    heroSlider.addEventListener('mouseleave', startSlider);
+    // Pause slider on hover (desktop only)
+    if (window.innerWidth > 1024) {
+        heroSlider.addEventListener('mouseenter', stopSlider);
+        heroSlider.addEventListener('mouseleave', startSlider);
+    }
 
     // Multi-step Donation Form
     const donationSteps = document.querySelectorAll('.donation-step');
