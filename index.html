@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jela Para Durga Mandir - Temple & Yoga Retreat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#programs">Features</a></li>
+                <li class="dropdown">
+                    <a href="#experience" class="dropbtn">About <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="plan-a-visit.html">Plan a Visit</a>
+                        <a href="leaderships.html">Leaderships</a>
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="programme.html">Programme</a>
+                    </div>
+                </li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#donation">Events</a></li>
+                <li><a href="#donation">Donations</a></li>
+                <li><a href="#blog">News</a></li>
+                <li><a href="#newsletter">Contacts</a></li>
+            </ul>
+            <div class="nav-logo">Jela Para Durga Mandir</div>
+            <div class="nav-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider" id="hero-slider">
+            <div class="hero-slide active" style="background-image: url('https://content3.jdmagicbox.com/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-03beq4maa9.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Find Your Inner Peace</h1>
+                    <p>Discover tranquility at our sacred temple</p>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: url('https://content3.jdmagicbox.com/v2/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-piaflcgjdx.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Embrace Spiritual Journey</h1>
+                    <p>Join us for prayer and devotion</p>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: url('https://content3.jdmagicbox.com/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-1zeqyiahtp.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Experience Divine Blessings</h1>
+                    <p>Your path to enlightenment starts here</p>
+                </div>
+            </div>
+        </div>
+        <button class="hero-arrow hero-prev" id="hero-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="hero-arrow hero-next" id="hero-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="section-header">
+            <span class="section-label">PROGRAME</span>
+            <h2 class="section-title">Puja Services, Festivals & Temple Activities</h2>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="https://content3.jdmagicbox.com/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-03beq4maa9.jpg" alt="Durga Mandir">
+                </div>
+                <div class="program-content">
+                    <h3>Daily Puja Services</h3>
+                    <p>Join us for morning and evening prayers with sacred rituals and devotional singing.</p>
+                    <button type="button" class="btn btn-outline more-info-btn" data-service="daily-puja">More Info</button>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="https://content3.jdmagicbox.com/v2/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-piaflcgjdx.jpg" alt="Temple Festival">
+                </div>
+                <div class="program-content">
+                    <h3>Festive Celebrations</h3>
+                    <p>Experience the grandeur of Durga Puja and other religious festivals with traditional rituals.</p>
+                    <button type="button" class="btn btn-outline more-info-btn" onclick="openServiceModal('festive-celebrations')">More Info</button>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="https://content3.jdmagicbox.com/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-1zeqyiahtp.jpg" alt="Temple Architecture">
+                </div>
+                <div class="program-content">
+                    <h3>Temple Tours</h3>
+                    <p>Visit our sacred temple and experience the divine architecture and spiritual ambiance.</p>
+                    <button type="button" class="btn btn-outline more-info-btn" onclick="openServiceModal('temple-tours')">More Info</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="experience-container">
+            <div class="experience-image">
+                <img src="https://content3.jdmagicbox.com/v2/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-para-purulia-temples-cjPBuNWp27.jpg" alt="Temple">
+            </div>
+            <div class="experience-content">
+                <h2>Experience Divine Blessings At Our Jela Para Durga Mandir</h2>
+                <p>Immerse yourself in the ancient traditions of worship at our sacred temple in Purulia, West Bengal. Our mandir welcomes devotees from all walks of life to experience the transformative power of devotion. Join our daily pujas, special rituals, and festive celebrations designed to bring peace and spirituality to your life.</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="section-header">
+            <span class="section-label">GALLERY</span>
+            <h2 class="section-title">View the Gallery of Our Temple</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item gallery-large">
+                <img src="https://content3.jdmagicbox.com/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-03beq4maa9.jpg" alt="Temple">
+                <div class="gallery-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://content3.jdmagicbox.com/v2/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-piaflcgjdx.jpg" alt="Temple">
+                <div class="gallery-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://content3.jdmagicbox.com/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-1zeqyiahtp.jpg" alt="Temple">
+                <div class="gallery-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://content3.jdmagicbox.com/v2/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-para-purulia-temples-cjPBuNWp27.jpg" alt="Temple">
+                <div class="gallery-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://content3.jdmagicbox.com/v2/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-para-purulia-temples-kgjhalbd5g.jpg" alt="Temple">
+                <div class="gallery-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="donation" id="donation">
+        <div class="donation-container">
+<div class="donation-content">
+                <h2>Dan: The Practice of Giving Back</h2>
+                <p>Support our mission to maintain the sacred space of Jela Para Durga Mandir. Your generous contribution helps with temple maintenance, priest salaries, festival celebrations, and charitable activities for the poor. Every donation brings blessings and supports our religious heritage.</p>
+            </div>
+            <div class="donation-widget">
+                <div class="donation-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 35%"></div>
+                    </div>
+                    <span class="progress-text">₹0 of ₹16,000 raised</span>
+                </div>
+                
+                <!-- Multi-step Form -->
+                <div class="donation-steps">
+                    <!-- Step 1: Amount Selection -->
+                    <div class="donation-step active" data-step="1">
+                        <h3>Select Donation Amount</h3>
+                        <div class="donation-amounts">
+                            <button type="button" class="amount-btn" data-amount="100">₹100</button>
+                            <button type="button" class="amount-btn" data-amount="250">₹250</button>
+                            <button type="button" class="amount-btn" data-amount="500">₹500</button>
+                            <button type="button" class="amount-btn" data-amount="1000">₹1000</button>
+                            <button type="button" class="amount-btn" data-amount="5000">₹5000</button>
+                            <button type="button" class="amount-btn" data-amount="custom">Custom</button>
+                        </div>
+                        <div class="custom-amount-input" style="display: none;">
+                            <input type="number" id="customAmount" placeholder="Enter custom amount (₹)">
+                        </div>
+                        <button type="button" class="btn btn-donate btn-next" id="step1Next">Next Step</button>
+                    </div>
+                    
+                    <!-- Step 2: User Details -->
+                    <div class="donation-step" data-step="2">
+                        <h3>Your Details</h3>
+                        <form class="donation-form" id="donationDetailsForm">
+                            <div class="form-row">
+                                <input type="text" name="firstName" placeholder="First Name *" required>
+                                <input type="text" name="lastName" placeholder="Last Name *" required>
+                            </div>
+                            <input type="email" name="email" placeholder="Email Address *" required>
+                            <input type="tel" name="phone" placeholder="Phone Number">
+                            <textarea name="message" placeholder="Any message (optional)" rows="2"></textarea>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline btn-back" id="step2Back">Back</button>
+                                <button type="submit" class="btn btn-donate">Proceed to Pay</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Step 3: QR Code -->
+                    <div class="donation-step" data-step="3">
+                        <h3>Scan to Donate</h3>
+                        <p class="donation-summary">Amount: <span id="selectedAmount">₹0</span></p>
+                        <div class="qr-code">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=JelaParaDurgaMandirDonation" alt="Donation QR Code">
+                        </div>
+                        <p class="qr-instruction">Scan the QR code using any UPI app to donate</p>
+                        <p class="qr-note">Or transfer to: <strong>1234567890@upi</strong></p>
+                        <button type="button" class="btn btn-donate btn-next" id="step3Next">I've Donated</button>
+                    </div>
+                    
+                    <!-- Step 4: Thank You -->
+                    <div class="donation-step" data-step="4">
+                        <div class="thank-you-message">
+                            <div class="thank-you-icon">🙏</div>
+                            <h3>Thank You for Your Donation!</h3>
+                            <p>Your generous contribution will help maintain our sacred temple.</p>
+                            <p class="donation-details">Amount: <span id="thankYouAmount">₹0</span></p>
+                            <p class="donor-name">Thank you, <span id="donorNameDisplay"></span>!</p>
+                            <div class="gita-bani">
+                                <p class="bani-text">"Yo yachhati tadaanayati"</p>
+                                <p class="bani-meaning">Jei dao, sei ananda pao - Bhagavad Gita</p>
+                                <p class="bani-benglish">"Jara den, tar shona mon"</p>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="startNewDonation">Make Another Donation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="section-header">
+            <span class="section-label">BLOG</span>
+            <h2 class="section-title">Temple News & Stories</h2>
+        </div>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="https://content3.jdmagicbox.com/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-03beq4maa9.jpg" alt="Temple">
+                    <div class="blog-overlay"></div>
+                </div>
+                <div class="blog-content">
+                    <h3>History of Jela Para Durga Mandir</h3>
+                    <a href="#" class="btn btn-outline-light">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="https://content3.jdmagicbox.com/v2/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-piaflcgjdx.jpg" alt="Festival">
+                    <div class="blog-overlay"></div>
+                </div>
+                <div class="blog-content">
+                    <h3>Durga Puja Celebrations at Our Temple</h3>
+                    <a href="#" class="btn btn-outline-light">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="https://content3.jdmagicbox.com/comp/purulia/u9/9999p3252.3252.181127232641.d5u9/catalogue/jelia-para-durga-mandir-purulia-1zeqyiahtp.jpg" alt="Architecture">
+                    <div class="blog-overlay"></div>
+                </div>
+                <div class="blog-content">
+                    <h3>Sacred Architecture and Deity</h3>
+                    <a href="#" class="btn btn-outline-light">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="newsletter">
+        <div class="newsletter-container">
+            <h2>Stay Connected with Our Temple</h2>
+            <p>Join our community and receive wisdom, updates, and inspiration directly to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Mobile Number" required>
+                <input type="email" placeholder="Email Address" required>
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="agree" required>
+                    <label for="agree">I agree that my submitted data is being collected and stored.</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Register Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">Jela Para Durga Mandir</div>
+        <nav class="footer-nav">
+            <a href="#home">Home</a>
+            <a href="#experience">Ashram</a>
+            <a href="#programs">Programs</a>
+            <a href="#donation">Events</a>
+            <a href="#donation">Donations</a>
+            <a href="#blog">News</a>
+            <a href="#experience">About</a>
+            <a href="#newsletter">Contacts</a>
+        </nav>
+        <div class="footer-copyright">
+            ThemeREX © 2024. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal-container">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-content">
+                <div class="modal-gallery">
+                    <div class="modal-main-image">
+                        <img id="modalMainImage" src="" alt="Service Image">
+                    </div>
+                    <div class="modal-thumbnails" id="modalThumbnails"></div>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalDescription"></p>
+                    <div class="modal-features" id="modalFeatures"></div>
+                    <div class="modal-timings" id="modalTimings"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
